@@ -3,7 +3,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import sqlite3
 import os
 
-# la carpeta assets (capturas) queda disponible en /assets
 app = Flask(__name__, static_folder="assets", static_url_path="/assets")
 app.secret_key = "clave_secreta_pfo2"  # necesaria para usar session
 
@@ -33,7 +32,7 @@ def registro():
     if not usuario or not contrasena:
         return jsonify({"mensaje": "Faltan datos"}), 400
 
-    # se guarda el hash, nunca la contraseña en texto plano
+    # Guardado del Hash de la contraseña
     contrasena_hash = generate_password_hash(contrasena)
 
     try:
@@ -59,7 +58,7 @@ def login():
                             (usuario,)).fetchone()
     conexion.close()
 
-    # compara la contraseña ingresada con el hash guardado
+    # Comparación de la contraseña ingresada con el hash guardado
     if fila and check_password_hash(fila[0], contrasena):
         session["usuario"] = usuario
         return jsonify({"mensaje": "Login exitoso"}), 200
@@ -116,7 +115,6 @@ def tareas():
         </body>
     </html>
     """
-
 
 # se crea la tabla al iniciar, de cualquier forma que se ejecute el servidor
 crear_tabla()
