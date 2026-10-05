@@ -1,0 +1,24 @@
+
+    <html>
+        <head><meta charset="utf-8"><title>PFO2 - Programacion sobre redes</title></head>
+        <body>
+            <h1>Bienvenido Usuario test</h1>
+            <h2></h2>
+
+            <h2>Respuestas conceptuales</h2>
+            <h3>¿Por qué hashear contraseñas?</h3>
+            <p>Porque si alguien accede a la base de datos no puede ver las contraseñas reales.
+            El hash no se puede revertir, así que para el login se compara el hash de la contraseña
+            ingresada con el guardado. Además muchas personas usan la misma contraseña en varios sitios,
+            entonces guardarlas en texto plano pondría en riesgo también otras cuentas. La librería
+            werkzeug agrega una "sal" aleatoria, por lo que dos usuarios con la misma contraseña
+            tienen hashes distintos.</p>
+
+            <h3>Ventajas de usar SQLite en este proyecto</h3>
+            <p>No hace falta instalar ni configurar un servidor de base de datos, ya viene incluido en Python.
+            Toda la base está en un solo archivo (<code>tareas.db</code>), que se crea solo al ejecutar
+            el servidor, así que el proyecto es fácil de compartir y probar. Los datos quedan guardados
+            aunque se apague el servidor.</p>
+        </body>
+    </html>
+    
