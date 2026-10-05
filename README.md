@@ -11,10 +11,13 @@ Los usuarios se guardan en SQLite con la contraseña hasheada.
 
 ## Cómo ejecutarlo
 
-1. Instalar las librerías:  pip install -r requirements.txt
-2. Ejecutar el servidor:   python servidor.py
+1. Instalar las librerías:  
+      pip install -r requirements.txt
+2. Ejecutar el servidor:   
+      python servidor.py
    Queda funcionando en `http://127.0.0.1:5000` y crea la base `tareas.db`.
-3. En otra terminal ejecutar el cliente:   python cliente.py
+3. En otra terminal ejecutar el cliente:   
+      python cliente.py
 
 ## Endpoints
 
@@ -22,25 +25,26 @@ Los usuarios se guardan en SQLite con la contraseña hasheada.
 - `POST /login` → verifica usuario y contraseña
 - `GET /tareas` → muestra un HTML de bienvenida
 
-## Pruebas
 
-Desde el cliente:
-1. Opción 1: registrar un usuario → "Usuario registrado correctamente"
-2. Opción 2: iniciar sesión → "Login exitoso"
-3. Opción 3: ver bienvenida → abre el HTML de bienvenida en el navegador
+## Capturas | Pruebas de funcionamiento
 
+Inicio de servidor ![alt text](assets/server.png)
+Inicio de cliente ![alt text](assets/client.png)
+Creacion de cliente ![alt text](assets/register.png)
+Inicio se sesion ![alt text](assets/login.png)
+Bienvenida en consola ![alt text](assets/initconsol.png)
+Bienvenida en navegador ![alt text](assets/inithtml.png)
+Error de user o pass ![alt text](assets/logerror.png)
+Error al registrar ![alt text](assets/errorreg.png)
 
-## Capturas
-
-![Registro](capturas/registro.png)
-![Login](capturas/login.png)
-![Tareas](capturas/tareas.png)
 
 ## Respuestas conceptuales
+
 
 **¿Por qué hashear contraseñas?**
 
 Porque si alguien accede a la base de datos no puede ver las contraseñas reales. El hash no se puede revertir, así que para el login se compara el hash de la contraseña ingresada con el guardado. Además muchas personas usan la misma contraseña en varios sitios, entonces guardarlas en texto plano pondría en riesgo también otras cuentas. La librería werkzeug agrega una "sal" aleatoria, por lo que dos usuarios con la misma contraseña tienen hashes distintos.
+
 
 **Ventajas de usar SQLite en este proyecto**
 
